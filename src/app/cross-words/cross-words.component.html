@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row crossword">
+    <div class="rows" *ngFor="let row of square">
+      <div class="columns" *ngFor="let column of row">
+        <input class="letter" [(ngModel)]="column" *ngIf="column !== ' '">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <span><strong>Words</strong></span>
+    <div *ngFor="let word of words">
+      <span>{{ word.description }}</span>
+    </div>
+  </div>
+</div>

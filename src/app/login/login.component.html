@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h3>Login</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="container">
+        <form class="form" [formGroup]="loginSection" (ngSubmit)="login()">
+          <div class="row">
+            <mat-form-field class="input">
+              <input matInput placeholder="E-mail" type="email" [formControl]="email" required email>
+              <mat-error *ngIf="email.hasError('email')">
+                E-mail is invalid.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="row">
+            <mat-form-field class="input">
+              <input matInput placeholder="Password" type="password" [formControl]="password" required minlength="8">
+              <mat-error *ngIf="password.hasError('minlength')">
+                Password must have at least 8 characteres.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="row">
+            <button mat-raised-button color="primary" type="submit" [disabled]="!loginSection.valid">Login</button>
+            <button mat-button (click)="signup()">Signup</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
